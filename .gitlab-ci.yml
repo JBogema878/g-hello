@@ -6,6 +6,7 @@ build-job:
   script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
     - echo $custom_yml_var_
+    - echo $CLUSTER_NAME
 
 test-job1:
   stage: test
