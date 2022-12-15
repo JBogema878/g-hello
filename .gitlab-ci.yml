@@ -14,6 +14,7 @@ build-local:
   script:
   - ./gradlew build
   - echo "you built the app"
+  - echo ${TF_ROOT}
 
   artifacts:
     paths:
