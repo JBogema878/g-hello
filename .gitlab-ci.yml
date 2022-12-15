@@ -10,18 +10,16 @@ stages:
 
 build-local:
   stage: build
-  image: openjdk:11
+  image: adoptopenjdk/openjdk11:alpine-slim
   script:
-  - ./gradlew build
+  - ./gradlew assemble
   - echo "you built the app"
-  - echo ${TF_ROOT}
 
   artifacts:
     paths:
-      - build/libs/g-hello-0.0.1-SNAPSHOT.jar
+      -  build/libs/*.jar
 
-build:
-  stage: build
+build-tf
   extends: .terraform:build
 
 test-job1:
