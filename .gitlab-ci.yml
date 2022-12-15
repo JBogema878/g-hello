@@ -4,12 +4,13 @@ include:
   - template: Terraform/Base.gitlab-ci.yml
 
 stages:
-  - build
+  - build1
+  - build2
   - test
   - deploy
 
 build-local:
-  stage: build
+  stage: build1
   image: adoptopenjdk/openjdk11:alpine-slim
   script:
   - ./gradlew assemble
@@ -21,6 +22,7 @@ build-local:
 
 build-tf:
   extends: .terraform:build
+  stage: build2
   dependencies:
     - "build-local"
 
