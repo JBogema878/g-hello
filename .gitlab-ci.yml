@@ -28,8 +28,5 @@ test-job1:
     - ./gradlew test
   allow_failure: true
 
-deploy-job:
-  stage: deploy
-  image:
 
 
