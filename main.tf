@@ -28,12 +28,12 @@ resource "aws_s3_bucket" "jim" {
 resource "aws_s3_object" "object" {
   bucket = aws_s3_bucket.jim.id
   key    = "g-hello-0.0.1-SNAPSHOT.jar"
-  source = "build/libs/g-hello-0.0.1-SNAPSHOT.jar"
+  source = "g-hello-0.0.1-SNAPSHOT.jar"
 
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
   # etag = "${md5(file("path/to/file"))}"
-  etag = filemd5("build/libs/g-hello-0.0.1-SNAPSHOT.jar")
+  etag = filemd5("g-hello-0.0.1-SNAPSHOT.jar")
 }
 
 //security group
@@ -84,8 +84,8 @@ resource "aws_iam_role_policy" "jim_role_policy" {
           "s3:GetObject",
         ],
         "Resource" : [
-          "arn:aws:s3:::jim-tf-test-bucket/g-hello-0.0.1-SNAPSHOT.jar",
-          "arn:aws:s3:::jim-tf-test-bucket"
+          "arn:aws:s3:::jim-tf-test-bucket1/g-hello-0.0.1-SNAPSHOT.jar",
+          "arn:aws:s3:::jim-tf-test-bucket1"
         ]
       }
     ]
