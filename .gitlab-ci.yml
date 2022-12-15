@@ -15,7 +15,7 @@ stages:
 
 build-local:
   stage: build1
-  image: adoptopenjdk/openjdk11:alpine-slim
+  image: openjdk:11
   script:
   - ./gradlew assemble
   - echo "you built the app"
