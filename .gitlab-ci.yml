@@ -15,6 +15,7 @@ build:
 
 test-job1:
   stage: test
+  image: openjdk:11
   script:
     - echo "This job tests something"
     - ./gradlew test
