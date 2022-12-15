@@ -10,9 +10,10 @@ build-job:
 test-job1:
   stage: test
   script:
+    - echo "$project_var_"
     - echo "This job tests something"
     - export
-    - echo $project_var_
+
 
 test-job2:
   stage: test
@@ -26,5 +27,5 @@ deploy-prod:
   stage: deploy
   script:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
-    - echo $group_var_
+    - echo "$group_var_"
   environment: production
