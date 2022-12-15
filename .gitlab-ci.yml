@@ -23,7 +23,7 @@ build:
   stage: build
   extends: .terraform:build
   dependencies:
-    -build-local
+    -['build-local']
 
 test-job1:
   stage: test
