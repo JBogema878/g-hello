@@ -19,7 +19,7 @@ build-local:
     paths:
       -  build/libs/*.jar
 
-build-tf
+build-tf:
   extends: .terraform:build
 
 test-job1:
