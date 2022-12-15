@@ -1,9 +1,13 @@
+image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
+
 include:
-  - template: Terraform.latest.gitlab-ci.yml
+  - template: Terraform/Base.gitlab-ci.yml
+  - template: Jobs/SAST-IaC.gitlab-ci.yml   # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST-IaC.gitlab-ci.yml
 
 stages:
   - build
   - test
+  - deploy
 
 build:
   stage: build
@@ -23,5 +27,9 @@ test-job1:
     - echo "This job tests something"
     - ./gradlew test
   allow_failure: true
+
+deploy-job:
+  stage: deploy
+  image:
 
 
