@@ -4,6 +4,7 @@ stages:
 
 build:
   stage: build
+  image: openjdk:11
   script:
   - ./gradlew build
   - echo "you built the app"
