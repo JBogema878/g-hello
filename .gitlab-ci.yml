@@ -21,6 +21,8 @@ build-local:
 
 build-tf:
   extends: .terraform:build
+  dependencies:
+    - "build-local"
 
 test-job1:
   stage: test
