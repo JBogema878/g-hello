@@ -19,5 +19,6 @@ test-job1:
   script:
     - echo "This job tests something"
     - ./gradlew test
+  allow_failure: true
 
 
